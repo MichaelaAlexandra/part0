@@ -1,0 +1,20 @@
+title New Note Sequence Single Page App
+
+note over browser:
+browser executes the form submit event 
+and the event handler calls a method to prevent
+default handling of form submit. 
+Then the event handler creates a new note, 
+adds it to the notes list, rerenders the note list 
+and sends the new note to the server
+end note over
+
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+
+note over server:
+The POST request contains the new note as JSON-data
+containing both the content of the note and the timestamp
+end note over
+
+
+server-->browser: HTTP status code 201 created
