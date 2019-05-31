@@ -1,0 +1,44 @@
+title New Note Sequence
+
+note over browser:
+browser executes the form submit event 
+that sends user input to server
+end note over
+
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+
+note over server:
+server accesses the data sent as the body of the Post-request,
+creates a new note object, and adds it to the notes-array 
+to be one of the notes dispalyed on the page after /notes 
+is fetched again
+end note over
+
+note over server:
+server asks browser to do a new HTTP GET request to notes, 
+the address defined in the header's Location
+end note over 
+
+server-->browser: HTTP status code 302
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+server-->browser: main.js
+
+note over browser:
+browser executes the js-code
+that requests JSON data from server
+end note over 
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server-->browser: [{"content":"HTML is easy","date":"2019-05-23T17:30:31.098Z"},...]
+
+note over browser:
+browser executes the event handler that renders notes 
+(including the added notes) to display
+end note over 
+
+
